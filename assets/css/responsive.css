@@ -239,6 +239,11 @@ Version      : 1.0
     .single-page-hero-area h2 {
         font-size: 60px;
     }
+
+    .single-page-hero-area {
+        padding-top: 130px;
+        padding-bottom: 30px;
+    }
     .hero-content img {
         width: 152px;
         position: static;
@@ -300,6 +305,11 @@ Version      : 1.0
         font-size: 60px;
     }
 
+    .single-page-hero-area {
+        padding-top: 130px;
+        padding-bottom: 30px;
+    }
+
     .blog-post-caption {
         padding-left: 0;
         padding-top: 30px;
@@ -325,6 +335,26 @@ Version      : 1.0
 
     .contact-content-part {
         margin-bottom: 30px;
+        padding-right: 0;
+        text-align: center;
+    }
+
+    .contact-content-part img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 28px;
+    }
+
+    .contact-content-part .about-social ul {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        padding-left: 0;
+    }
+
+    .contact-content-part .about-social ul li {
+        margin-right: 0;
     }
 
     .single-page-hero-area p {
@@ -417,17 +447,22 @@ Version      : 1.0
     }
 
     .services-area {
-        padding-bottom: 80px;
+        padding-bottom: 25px;
     }
 
     .testimonials-area {
         padding-top: 80px;
-        padding-bottom: 80px;
+        padding-bottom: 25px;
     }
 
     .projects-area {
-        padding-top: 50px;
-        padding-bottom: 80px;
+        padding-top: 30px;
+        padding-bottom: 65px;
+    }
+
+    .about-area {
+        padding-top: 35px;
+        padding-bottom: 70px;
     }
 
     .client-logo-area {
@@ -440,8 +475,8 @@ Version      : 1.0
     }
 
     .contact-area {
-        padding-top: 80px;
-        padding-bottom: 80px;
+        padding-top: 35px;
+        padding-bottom: 65px;
     }
 
     .blog-area {
@@ -523,6 +558,11 @@ Version      : 1.0
 
     .hero-counter-area .counter-title {
         font-size: 14px;
+    }
+
+    #services .row > div:last-child .service-item,
+    .testimonials-area .row > div:last-child .testimonial-item {
+        margin-bottom: 0;
     }
 
 }
