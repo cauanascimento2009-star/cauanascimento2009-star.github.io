@@ -240,7 +240,11 @@ Version      : 1.0
         font-size: 60px;
     }
     .hero-content img {
-        width: 160px;
+        width: 152px;
+        position: static;
+        display: block;
+        margin: 0 auto 22px;
+        z-index: auto;
     }
 
     .scroller__inner img {
@@ -259,7 +263,11 @@ Version      : 1.0
 @media only screen and (max-width: 767px) {
 
     .hero-content img {
-        width: 160px;
+        width: 152px;
+        position: static;
+        display: block;
+        margin: 0 auto 22px;
+        z-index: auto;
     }
 
     .scroller__inner img {
@@ -382,7 +390,16 @@ Version      : 1.0
     }
 
     .main-hero-area {
-        padding-top: 280px;
+        padding-top: 115px;
+        padding-bottom: 35px;
+    }
+
+    .company-list {
+        margin-top: 32px;
+    }
+
+    .multipage-service-area {
+        padding-top: 45px;
     }
 
 
@@ -472,9 +489,13 @@ Version      : 1.0
     }
 
     .hero-content h2 {
-        font-size: 48px;
-        line-height: 1.12em;
-        overflow-wrap: break-word;
+        font-size: 40px;
+        line-height: 1.13em;
+        max-width: 340px;
+        margin-left: auto;
+        margin-right: auto;
+        overflow-wrap: normal;
+        word-break: normal;
     }
 
     .hero-image img {
