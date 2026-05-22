@@ -472,8 +472,9 @@ Version      : 1.0
     }
 
     .hero-content h2 {
-
-        font-size: 70px;
+        font-size: 48px;
+        line-height: 1.12em;
+        overflow-wrap: break-word;
     }
 
     .hero-image img {
