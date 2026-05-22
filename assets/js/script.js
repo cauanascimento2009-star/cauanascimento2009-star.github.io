@@ -196,6 +196,85 @@ Version      : 1.0
     // Call the functions 
     magnifPopup();
 
+    function enablePopupSwipe() {
+        if (!window.jQuery || !$.magnificPopup) {
+            return;
+        }
+
+        var startX = 0;
+        var startY = 0;
+        var tracking = false;
+        var moved = false;
+        var minSwipe = 45;
+
+        function getPopup() {
+            var popup = $.magnificPopup.instance;
+
+            if (!popup || !popup.isOpen || !popup.items || popup.items.length < 2) {
+                return null;
+            }
+
+            return popup;
+        }
+
+        function isIgnoredTarget(target) {
+            return $(target).closest('.mfp-close, .mfp-arrow, button, input, textarea, select, a').length > 0;
+        }
+
+        document.addEventListener('touchstart', function(event) {
+            if (!getPopup() || event.touches.length !== 1 || isIgnoredTarget(event.target)) {
+                tracking = false;
+                return;
+            }
+
+            startX = event.touches[0].clientX;
+            startY = event.touches[0].clientY;
+            moved = false;
+            tracking = true;
+        }, { passive: true });
+
+        document.addEventListener('touchmove', function(event) {
+            if (!tracking || event.touches.length !== 1) {
+                return;
+            }
+
+            var diffX = event.touches[0].clientX - startX;
+            var diffY = event.touches[0].clientY - startY;
+
+            if (Math.abs(diffX) > 12 && Math.abs(diffX) > Math.abs(diffY)) {
+                moved = true;
+                event.preventDefault();
+            }
+        }, { passive: false });
+
+        document.addEventListener('touchend', function(event) {
+            var popup = getPopup();
+
+            if (!tracking || !popup || !moved) {
+                tracking = false;
+                return;
+            }
+
+            var endTouch = event.changedTouches[0];
+            var diffX = endTouch.clientX - startX;
+            var diffY = endTouch.clientY - startY;
+
+            tracking = false;
+
+            if (Math.abs(diffX) < minSwipe || Math.abs(diffX) < Math.abs(diffY) * 1.35) {
+                return;
+            }
+
+            if (diffX < 0) {
+                popup.next();
+            } else {
+                popup.prev();
+            }
+        }, { passive: true });
+    }
+
+    enablePopupSwipe();
+
 
     /*
      * ----------------------------------------------------------------------------------------
